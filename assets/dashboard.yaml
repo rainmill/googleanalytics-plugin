@@ -1,0 +1,139 @@
+reports:
+  traffic:
+    row: 1
+    type: section
+    title: Traffic
+    show_period: true
+  views:
+    row: 2
+    width: 5
+    type: indicator
+    title: Views
+    icon: eye
+    metric: views
+    data_source: rainmill.googleanalytics
+  users:
+    row: 2
+    width: 5
+    type: indicator
+    title: Active users
+    icon: users
+    metric: active_users
+    data_source: rainmill.googleanalytics
+  sessions:
+    row: 2
+    width: 5
+    type: indicator
+    title: Sessions
+    icon: activity
+    metric: sessions
+    data_source: rainmill.googleanalytics
+  engagement:
+    row: 2
+    width: 5
+    type: indicator
+    title: Engagement rate
+    icon: gauge
+    metric: engagement_rate
+    data_source: rainmill.googleanalytics
+  overview:
+    row: 3
+    type: chart
+    chart: line
+    title: Views and users
+    data_source: rainmill.googleanalytics
+    metrics:
+      - metric: views
+        totals: true
+      - metric: active_users
+        totals: true
+  pages:
+    row: 4
+    width: 10
+    type: table
+    title: Top pages
+    dimension: page_path
+    limit: 10
+    hide_empty: true
+    data_source: rainmill.googleanalytics
+    metrics:
+      - metric: views
+        totals: true
+        bar: true
+      - metric: active_users
+        totals: true
+  landing:
+    row: 4
+    width: 10
+    type: table
+    title: Landing pages
+    dimension: landing_page
+    limit: 10
+    hide_empty: true
+    data_source: rainmill.googleanalytics
+    metrics:
+      - metric: sessions
+        bar: true
+      - engagement_rate
+  channels:
+    row: 5
+    width: 10
+    type: chart
+    chart: doughnut
+    title: Channels
+    dimension: channel
+    limit: 8
+    data_source: rainmill.googleanalytics
+    metrics: [sessions]
+  devices:
+    row: 5
+    width: 10
+    type: chart
+    chart: doughnut
+    title: Devices
+    dimension: device
+    data_source: rainmill.googleanalytics
+    metrics: [active_users]
+  cities:
+    row: 6
+    width: 10
+    type: chart
+    chart: horizontal_bar
+    title: Top cities
+    dimension: city
+    limit: 10
+    hide_empty: true
+    data_source: rainmill.googleanalytics
+    metrics: [active_users]
+  sources:
+    row: 6
+    width: 10
+    type: table
+    title: Sources
+    dimension: source_medium
+    limit: 10
+    data_source: rainmill.googleanalytics
+    metrics:
+      - metric: sessions
+        bar: true
+      - key_events
+  events:
+    row: 7
+    width: 14
+    type: table
+    title: Events
+    dimension: event
+    limit: 15
+    data_source: rainmill.googleanalytics
+    metrics:
+      - metric: events
+        bar: true
+      - active_users
+  key_events:
+    row: 7
+    width: 6
+    type: indicator
+    title: Key events
+    icon: target
+    metric: key_events
+    data_source: rainmill.googleanalytics
